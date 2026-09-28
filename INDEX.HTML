@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Evolução Humana</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4b2e83, #1e3c72);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .quiz {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4b2e83;
+        }
+
+        .intro {
+            text-align: center;
+            color: #555;
+        }
+
+        .questao {
+            background: #f3f0fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+        }
+
+        .questao h3 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            background: white;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid #ddd;
+        }
+
+        label:hover {
+            background: #eee5ff;
+            border-color: #4b2e83;
+        }
+
+        button {
+            display: block;
+            margin: 25px auto;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            background: #4b2e83;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #351f61;
+        }
+
+        #resultado {
+            display: none;
+            text-align: center;
+            background: #eee5ff;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .correto {
+            background: #c8f7c5 !important;
+            border-color: green !important;
+        }
+
+        .errado {
+            background: #ffc7c7 !important;
+            border-color: red !important;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="quiz">
+
+    <h1>🧬 Quiz de Evolução Humana</h1>
+
+    <p class="intro">
+        Teste seus conhecimentos sobre a evolução humana!
+    </p>
+
+    <div class="questao">
+        <h3>1. Qual é o nome científico da espécie humana atual?</h3>
+
+        <label>
+            <input type="radio" name="q1" value="a">
+            Homo erectus
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="b">
+            Homo habilis
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="c">
+            Homo sapiens
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="d">
+            Australopithecus afarensis
+        </label>
+    </div>
+
+    <div class="questao">
+        <h3>2. Em qual continente surgiram os primeiros ancestrais humanos conhecidos?</h3>
+
+        <label>
+            <input type="radio" name="q2" value="a">
+            América
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="b">
+            África
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="c">
+            Europa
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="d">
+            Ásia
+        </label>
+    </div>
+
+    <div class="questao">
+        <h3>3. Qual característica foi importante na evolução dos primeiros hominínios?</h3>
+
+        <label>
+            <input type="radio" name="q3" value="a">
+            Bipedalismo
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="b">
+            Capacidade de voar
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="c">
+            Respiração aquática
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="d">
+            Desenvolvimento de asas
+        </label>
+    </div>
+
+    <div class="questao">
+        <h3>4. Qual espécie é associada ao uso de ferramentas de pedra relativamente simples?</h3>
+
+        <label>
+            <input type="radio" name="q4" value="a">
+            Homo habilis
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="b">
+            Homo sapiens
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="c">
+            Homo neanderthalensis
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="d">
+            Homo naledi
+        </label>
+    </div>
+
+    <div class="questao">
+        <h3>5. Qual espécie se espalhou para fora da África antes do Homo sapiens?</h3>
+
+        <label>
+            <input type="radio" name="q5" value="a">
+            Homo erectus
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="b">
+            Homo naledi
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="c">
+            Australopithecus afarensis
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="d">
+            Paranthropus boisei
+        </label>
+    </div>
+
+    <div class="questao">
+        <h3>6. Onde viveram principalmente os neandertais?</h3>
+
+        <label>
+            <input type="radio" name="q6" value="a">
+            Europa e partes da Ásia
+        </label>
+
+        <label>
+            <input type="radio" name="q6" value="b">
+            América do Sul
+        </label>
+
+        <label>
+            <input type="radio" name="q6" value="c">
+            Austrália
+        </label>
+
+        <label>
+            <input type="radio" name="q6" value="d">
+            Antártica
+        </label>
+    </div>
+
+    <div class="questao">
+        <h3>7. Humanos e chimpanzés:</h3>
+
+        <label>
+            <input type="radio" name="q7" value="a">
+            Humanos descendem dos chimpanzés atuais
+        </label>
+
+        <label>
+            <input type="radio" name="q7" value="b">
+            Possuem um ancestral comum
+        </label>
+
+        <label>
+            <input type="radio" name="q7" value="c">
+            São exatamente a mesma espécie
+        </label>
+
+        <label>
+            <input type="radio" name="q7" value="d">
+            Não possuem nenhuma relação evolutiva
+        </label>
+    </div>
+
+    <div class="questao">
+        <h3>8. Qual processo é fundamental para a evolução por seleção natural?</h3>
+
+        <label>
+            <input type="radio" name="q8" value="a">
+            Variação hereditária
+        </label>
+
+        <label>
+            <input type="radio" name="q8" value="b">
+            Todos os indivíduos serem iguais
+        </label>
+
+        <label>
+            <input type="radio" name="q8" value="c">
+            Ausência de reprodução
+        </label>
+
+        <label>
+            <input type="radio" name="q8" value="d">
+            Mudanças causadas pela vontade
+        </label>
+    </div>
+
+    <div class="questao">
+        <h3>9. Qual afirmação sobre a evolução humana está correta?</h3>
+
+        <label>
+            <input type="radio" name="q9" value="a">
+            A evolução humana foi totalmente linear.
+        </label>
+
+        <label>
+            <input type="radio" name="q9" value="b">
+            Só existiu uma espécie humana.
+        </label>
+
+        <label>
+            <input type="radio" name="q9" value="c">
+            Várias espécies humanas existiram ao longo da evolução.
+        </label>
+
+        <label>
+            <input type="radio" name="q9" value="d">
+            A evolução humana terminou completamente.
+        </label>
+    </div>
+
+    <div class="questao">
+        <h3>10. Quais evidências ajudam os cientistas a estudar a evolução humana?</h3>
+
+        <label>
+            <input type="radio" name="q10" value="a">
+            Apenas histórias
+        </label>
+
+        <label>
+            <input type="radio" name="q10" value="b">
+            Fósseis, genética e arqueologia
+        </label>
+
+        <label>
+            <input type="radio" name="q10" value="c">
+            Apenas pinturas modernas
+        </label>
+
+        <label>
+            <input type="radio" name="q10" value="d">
+            Apenas observações de animais
+        </label>
+    </div>
+
+    <button onclick="corrigirQuiz()">
+        Ver Resultado
+    </button>
+
+    <div id="resultado">
+        <h2>Resultado</h2>
+        <p id="pontuacao"></p>
+        <p id="mensagem"></p>
+
+        <button onclick="location.reload()">
+            Refazer Quiz
+        </button>
+    </div>
+
+</div>
+
+<script>
+
+function corrigirQuiz() {
+
+    const respostas = {
+        q1: "c",
+        q2: "b",
+        q3: "a",
+        q4: "a",
+        q5: "a",
+        q6: "a",
+        q7: "b",
+        q8: "a",
+        q9: "c",
+        q10: "b"
+    };
+
+    let pontos = 0;
+    let respondidas = 0;
+
+    for (let questao in respostas) {
+
+        const resposta = document.querySelector(
+            'input[name="' + questao + '"]:checked'
+        );
+
+        if (resposta) {
+
+            respondidas++;
+
+            if (resposta.value === respostas[questao]) {
+                pontos++;
+                resposta.parentElement.classList.add("correto");
+            } else {
+                resposta.parentElement.classList.add("errado");
+
+                const correta = document.querySelector(
+                    'input[name="' + questao + '"][value="' +
+                    respostas[questao] + '"]'
+                );
+
+                correta.parentElement.classList.add("correto");
+            }
+        }
+    }
+
+    if (respondidas < 10) {
+        alert("Responda todas as questões!");
+        return;
+    }
+
+    document.getElementById("resultado").style.display = "block";
+
+    document.getElementById("pontuacao").innerHTML =
+        "<strong>Você acertou " + pontos + " de 10 questões!</strong>";
+
+    let mensagem;
+
+    if (pontos === 10) {
+        mensagem = "🏆 Parabéns! Você acertou todas!";
+    } 
+    else if (pontos >= 7) {
+        mensagem = "👏 Muito bem! Você conhece bastante sobre evolução humana.";
+    } 
+    else if (pontos >= 5) {
+        mensagem = "📚 Bom trabalho! Continue estudando.";
+    } 
+    else {
+        mensagem = "🔎 Continue estudando. Você pode melhorar!";
+    }
+
+    document.getElementById("mensagem").innerHTML = mensagem;
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>

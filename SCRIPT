@@ -1,0 +1,129 @@
+function corrigirQuiz() {
+
+    const respostas = {
+        q1: "c",
+        q2: "b",
+        q3: "a",
+        q4: "a",
+        q5: "a",
+        q6: "a",
+        q7: "b",
+        q8: "a",
+        q9: "c",
+        q10: "b"
+    };
+
+    let pontos = 0;
+    let respondidas = 0;
+
+    // Remove marcações anteriores
+    document.querySelectorAll("label").forEach(label => {
+        label.classList.remove("correto", "errado");
+    });
+
+    // Verifica cada questão
+    for (let questao in respostas) {
+
+        const resposta = document.querySelector(
+            `input[name="${questao}"]:checked`
+        );
+
+        if (resposta) {
+
+            respondidas++;
+
+            if (resposta.value === respostas[questao]) {
+
+                pontos++;
+
+                resposta.parentElement.classList.add("correto");
+
+            } else {
+
+                resposta.parentElement.classList.add("errado");
+
+                // Mostra qual era a resposta correta
+                const correta = document.querySelector(
+                    `input[name="${questao}"][value="${respostas[questao]}"]`
+                );
+
+                if (correta) {
+                    correta.parentElement.classList.add("correto");
+                }
+            }
+        }
+    }
+
+    // Verifica se todas foram respondidas
+    if (respondidas < 10) {
+
+        alert(
+            `Você respondeu apenas ${respondidas} de 10 questões.\n\n` +
+            `Responda todas antes de ver o resultado!`
+        );
+
+        return;
+    }
+
+    // Mostra resultado
+    const resultado = document.getElementById("resultado");
+
+    resultado.style.display = "block";
+
+    // Pontuação
+    document.getElementById("pontuacao").innerHTML =
+        `<strong>Você acertou ${pontos} de 10 questões!</strong>`;
+
+    // Mensagem
+    let mensagem = "";
+
+    if (pontos === 10) {
+
+        mensagem = "🏆 Parabéns! Você acertou todas as questões!";
+
+    } else if (pontos >= 8) {
+
+        mensagem =
+            "🔥 Excelente! Você demonstrou um ótimo conhecimento sobre evolução humana.";
+
+    } else if (pontos >= 6) {
+
+        mensagem =
+            "👏 Muito bem! Você tem um bom conhecimento sobre o assunto.";
+
+    } else if (pontos >= 5) {
+
+        mensagem =
+            "📚 Bom trabalho! Continue estudando para melhorar sua pontuação.";
+
+    } else {
+
+        mensagem =
+            "🔎 Continue estudando. Com um pouco mais de prática você pode melhorar!";
+    }
+
+    document.getElementById("mensagem").textContent = mensagem;
+
+    // Desativa as alternativas depois da correção
+    document.querySelectorAll("input[type='radio']").forEach(input => {
+        input.disabled = true;
+    });
+
+    // Desativa o botão de corrigir
+    const botoes = document.querySelectorAll("button");
+
+    botoes[0].disabled = true;
+
+    botoes[0].style.opacity = "0.6";
+    botoes[0].style.cursor = "not-allowed";
+
+    // Rola até o resultado
+    setTimeout(() => {
+
+        resultado.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }, 200);
+}

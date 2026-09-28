@@ -1,0 +1,419 @@
+/* ================================
+   CONFIGURAÇÕES GERAIS
+================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at top left, #8b5cf6 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #2563eb 0%, transparent 35%),
+        linear-gradient(135deg, #111827, #312e81);
+
+    color: #1f2937;
+}
+
+
+/* ================================
+   CONTAINER DO QUIZ
+================================ */
+
+.quiz {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+
+    animation: aparecer 0.8s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================================
+   TÍTULO
+================================ */
+
+h1 {
+    margin-bottom: 12px;
+
+    text-align: center;
+
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+
+    background: linear-gradient(
+        90deg,
+        #6d28d9,
+        #2563eb
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.intro {
+    margin-bottom: 35px;
+
+    text-align: center;
+
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+
+/* ================================
+   QUESTÕES
+================================ */
+
+.questao {
+    position: relative;
+
+    margin: 25px 0;
+    padding: 25px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+    border-left: 5px solid #7c3aed;
+
+    border-radius: 16px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.questao:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.questao h3 {
+    margin-bottom: 18px;
+
+    color: #1f2937;
+
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+
+/* ================================
+   ALTERNATIVAS
+================================ */
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+
+    margin: 10px 0;
+    padding: 14px 16px;
+
+    background: #ffffff;
+
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+label:hover {
+    background: #f5f3ff;
+    border-color: #8b5cf6;
+
+    transform: translateX(4px);
+
+    box-shadow:
+        0 5px 15px rgba(124, 58, 237, 0.12);
+}
+
+label:has(input:checked) {
+    background: #ede9fe;
+    border-color: #7c3aed;
+
+    box-shadow:
+        0 0 0 3px rgba(124, 58, 237, 0.12);
+}
+
+
+/* Radio */
+
+input[type="radio"] {
+    width: 18px;
+    height: 18px;
+
+    accent-color: #7c3aed;
+
+    cursor: pointer;
+}
+
+
+/* ================================
+   RESPOSTAS CORRETAS E ERRADAS
+================================ */
+
+.correto {
+    background: #dcfce7 !important;
+    border-color: #16a34a !important;
+
+    color: #166534;
+
+    animation: respostaCorreta 0.5s ease;
+}
+
+.errado {
+    background: #fee2e2 !important;
+    border-color: #dc2626 !important;
+
+    color: #991b1b;
+
+    animation: respostaErrada 0.4s ease;
+}
+
+@keyframes respostaCorreta {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes respostaErrada {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+
+/* ================================
+   BOTÕES
+================================ */
+
+button {
+    display: block;
+
+    margin: 30px auto 10px;
+
+    padding: 15px 32px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #2563eb
+    );
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.3);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(79, 70, 229, 0.4);
+
+    filter: brightness(1.08);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* ================================
+   RESULTADO
+================================ */
+
+#resultado {
+    display: none;
+
+    margin-top: 35px;
+    padding: 30px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ede9fe,
+            #dbeafe
+        );
+
+    border: 2px solid #c4b5fd;
+
+    border-radius: 18px;
+
+    animation: resultadoEntrada 0.7s ease;
+}
+
+#resultado h2 {
+    margin-bottom: 15px;
+
+    color: #5b21b6;
+
+    font-size: 2rem;
+}
+
+#pontuacao {
+    margin-bottom: 10px;
+
+    font-size: 1.3rem;
+    color: #1f2937;
+}
+
+#mensagem {
+    color: #4b5563;
+
+    font-size: 1.05rem;
+}
+
+@keyframes resultadoEntrada {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ================================
+   RESPONSIVIDADE
+================================ */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 20px 10px;
+    }
+
+    .quiz {
+        padding: 25px 18px;
+        border-radius: 18px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .questao {
+        padding: 18px;
+    }
+
+    label {
+        padding: 13px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+
+/* ================================
+   ACESSIBILIDADE
+================================ */
+
+button:focus-visible,
+label:focus-within {
+    outline: 3px solid #a78bfa;
+    outline-offset: 3px;
+}
+
+
+/* ================================
+   BARRA DE ROLAGEM
+================================ */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111827;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        #7c3aed,
+        #2563eb
+    );
+
+    border-radius: 10px;
+}
